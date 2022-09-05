@@ -1,0 +1,8 @@
+.wrapper{
+    position: relative;
+}
+.link{
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+}
