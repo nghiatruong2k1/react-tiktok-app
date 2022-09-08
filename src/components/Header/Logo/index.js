@@ -12,6 +12,7 @@ function LogoComponent(props){
                     src='/tiktok-logo.png'
                     withPlaceholder
                     fit="contain"
+                    height={"5rem"}
                 />
                 <NavLink 
                     className={styles.link}

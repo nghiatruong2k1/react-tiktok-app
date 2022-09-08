@@ -25,6 +25,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+#root{
+  position:fixed;
+  inset: 0;
+}
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -44,4 +48,28 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+.fullheight{
+  height: 100% !important;
+}
+.fullwidth{
+  width: 100% !important;
+}
+
+
+.grow{
+  flex:1 !important;
+}
+.relative{
+  position: relative !important;
+}
+.absolute{
+  position: absolute !important;
+}
+.fixed{
+  position: fixed !important;
+}
+
+.inset-0{
+  inset: 0 !important;
 }

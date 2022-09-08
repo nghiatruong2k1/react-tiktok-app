@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {BrowserRouter } from 'react-router-dom'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {GlobalStyles} from './components/@styles';
-import GlobalFonts from './components/@fonts';
+import {GlobalStyles} from './styles';
+import GlobalFonts from './fonts';
+import GlobalStates from './states';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+  <BrowserRouter>
     <GlobalFonts>
       <GlobalStyles>
+        <GlobalStates>
           <App />
+        </GlobalStates>
       </GlobalStyles>
     </GlobalFonts>
+  </BrowserRouter>
   </React.StrictMode>
 );
 

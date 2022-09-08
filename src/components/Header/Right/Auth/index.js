@@ -1,11 +1,17 @@
-import {memo,Fragment} from 'react';
-import clsx from 'clsx';
-import LoginButton from "./Login";
+import {memo,useReducer} from 'react';
+
+import AuthLayout from './layout';
+import {routersAuth} from "./routers";
+import {initState,reducerState} from "./init";
+import AuthProvider from "./provider";
 function AuthComponent(props){
+    const [state,dispath] = useReducer(reducerState,initState);
     return (
-        <Fragment>
-            <LoginButton />
-        </Fragment>
+        <AuthProvider {...{state,dispath}}>
+            <AuthLayout title={routersAuth[state.path].title}>
+                {routersAuth[state.path].content}
+            </AuthLayout>
+        </AuthProvider>
     )
 };
 export default memo(AuthComponent)

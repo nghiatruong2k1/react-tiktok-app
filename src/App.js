@@ -1,17 +1,18 @@
-import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import {Routes,Route,useLocation} from 'react-router-dom';
 import { 
   Fragment,
   useEffect
 } from 'react';
-import {publicRoutes} from "./routers/";
-import { DefaultLayout } from './components/@layout';
+import {publicRoutes} from "./routers";
+import { DefaultLayout } from './components/layout';
 import {SetTitle} from './config/SetTitle/';
 function App() {
+  const location = useLocation();
   useEffect(()=>{
     SetTitle();
-  },[])
+  },[location])
   return (
-    <BrowserRouter>
+    <>
       <Routes>
         {
           publicRoutes.map(({layout,path,page},index)=>{
@@ -31,7 +32,7 @@ function App() {
           })
         }
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 

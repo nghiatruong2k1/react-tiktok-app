@@ -12,12 +12,14 @@ function HeaderComponent(props){
     return (
         <Fragment>
             <Header className={styles.wrapper}>
-                <Container className={styles.container} size={'lg'}>
-                    <Grid align="center">
-                        <Logo xs={1.5}/>
-                        <Search xs={4.5}></Search>
-                        <Right xs={6}></Right>
-                    </Grid>
+                <Container fluid>
+                    <Container size="lg"  pb={0}>
+                        <Grid align="center">
+                                <Logo xs={1.5}/>
+                                <Search xs={4.5}></Search>
+                                <Right xs={6}></Right>
+                            </Grid>
+                    </Container>
                 </Container>
             </Header>
         </Fragment>

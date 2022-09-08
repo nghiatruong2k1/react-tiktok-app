@@ -1,15 +1,15 @@
 export const initState = {
-    value:''
+    path:'login'
 };
 export const initCase = {
-    CHANGE_VALUE:'change-value'
+    SET_PATH:'set_path'
 };
 export function reducerState(prevState,[key,payload]){
     switch(key){
-        case initCase.CHANGE_VALUE:{
-            return {
+        case initCase.SET_PATH:{
+            return{
                 ...prevState,
-                value:payload
+                path:payload
             }
         }
         default:{
