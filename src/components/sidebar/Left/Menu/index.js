@@ -29,6 +29,13 @@ function MenuComponent(props){
                             color="red"
                             active={location.pathname === path}
                             style={{fontWeight:"bold"}}
+                            sx={{
+                                xs:{
+                                    text:{
+                                        
+                                    }
+                                }
+                            }}
                         />
                     )
                 })

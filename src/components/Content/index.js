@@ -1,10 +1,16 @@
-import { Container, Grid, Stack } from '@mantine/core';
+
+import { Stack } from '@mui/material';
 import {memo} from 'react';
-import styles from "./styles.module.css";
+import ScrollArea from '../ScrollArea';
 function ContentComponent({children}){
     return (
-        <Stack>
-           {children}
-        </Stack>
+        <>
+            <ScrollArea className={'fullview'} type="hover">
+                <Stack spacing={1} p={1}>
+                    {children}
+                </Stack>
+            </ScrollArea>
+        </>
     )
-};export default memo(ContentComponent)
+};
+export default memo(ContentComponent)

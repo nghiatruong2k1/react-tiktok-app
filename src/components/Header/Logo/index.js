@@ -1,25 +1,22 @@
 import {memo} from 'react';
-import { Grid,Image,Text,NavLink } from '@mantine/core';
 import styles from './styles.module.css';
-import { Link} from 'react-router-dom';
+import { Grid } from '@mui/material';
+import Image from '~/components/Image';
+import { Link } from 'react-router-dom';
 function LogoComponent(props){
     return (
-        <Grid.Col {...props}>
+        <Grid item {...props}>
             <div className={styles.wrapper}>
                 <Image 
                     alt={process.env.REACT_APP_WEBSITE_NAME}
-                    placeholder={<Text align="center">{process.env.REACT_APP_WEBSITE_NAME}</Text>}
+                    placeholder={process.env.REACT_APP_WEBSITE_NAME}
                     src='/tiktok-logo.png'
                     withPlaceholder
                     fit="contain"
-                    height={"5rem"}
+                    height={"4rem"}
                 />
-                <NavLink 
-                    className={styles.link}
-                    component={Link}
-                    to={"/"}
-                />
+                <Link to={"/"} className={styles.link}/>
             </div> 
-        </Grid.Col>
+        </Grid>
     )
 };export default memo(LogoComponent)

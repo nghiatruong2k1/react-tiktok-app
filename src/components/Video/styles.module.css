@@ -1,0 +1,19 @@
+.video-wrapper{
+    position: relative;
+}
+.bottom-control{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.control{
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+    transition: opacity 0.25s;
+}
+.video-wrapper:hover .control{
+    opacity: 1;
+    pointer-events: auto;
+}

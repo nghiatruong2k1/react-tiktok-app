@@ -1,46 +1,38 @@
-import {memo, useContext} from 'react';
-import { ActionIcon, Divider, Group, Navbar, ScrollArea, Text } from '@mantine/core';
-import { IconArrowBigLeftLines} from '@tabler/icons';
-import { MoreContext } from '../provider';
-import { initCase } from '../init';
-function MoreLayoutComponent({children,title,path,footer}){
-    const {dispath} = useContext(MoreContext);
-    return (
+import { memo, useContext } from "react";
+import { IconArrowBigLeftLines } from "@tabler/icons";
+import { MoreContext } from "../provider";
+import { initCase } from "../init";
+import { IconButton, Typography, CardHeader, CardContent, Divider } from "@mui/material";
+function MoreLayoutComponent({ children, title, path, footer }) {
+  const { dispath } = useContext(MoreContext);
+  return (
     <>
-        <Navbar styles={{
-            root:{borderRight:'0'}
-        }}>
-                {
-                    title && (
-                        <Navbar.Section>
-                            <Group>
-                                {
-                                    (path !== 'default') && (
-                                        <ActionIcon onClick={()=>{dispath([initCase.BACK])}}>
-                                            <IconArrowBigLeftLines />
-                                        </ActionIcon>
-                                    )
-                                }
-                                <Text weight="bold">
-                                    {title}
-                                </Text>
-                            </Group>
-                            <Divider /> 
-                        </Navbar.Section>
-                    )
-                }
-                <Navbar.Section grow>
-                    <ScrollArea>
-                        {children}
-                    </ScrollArea>
-                </Navbar.Section>
-                {
-                    footer && (
-                        <Navbar.Section>{footer}</Navbar.Section>
-                    )
-                }
-        </Navbar>
+      {title && (
+        <>
+        <CardHeader
+          sx={{ p: 0 }}
+          avatar={
+            path !== "default" && (
+              <IconButton
+                onClick={() => {
+                  dispath([initCase.BACK]);
+                }}
+              >
+                <IconArrowBigLeftLines />
+              </IconButton>
+            )
+          }
+          title={<Typography fontWeight="bold">{title}</Typography>}
+        />
+        <Divider />
+        </>
+      )}
+      <CardContent className="grow" sx={{ p: 0 }}>
+        {children}
+      </CardContent>
+      <CardContent sx={{ p: 0, pb: 0 }}>{footer}</CardContent>
+      <div></div>
     </>
-    )
-};
-export default memo(MoreLayoutComponent)
+  );
+}
+export default memo(MoreLayoutComponent);

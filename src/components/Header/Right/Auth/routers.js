@@ -11,10 +11,14 @@ import {
     LoginContent,
     RegisterContent
 } from "./content";
+import {
+    LoginFooter,
+    RegisterFooter
+} from "./footer";
 
 export const routersLogin = [
     {
-        path:"qr",text:"Sử dụng mã QR",icon:IconQrcode
+        path:"qr",text:"Sử dụng mã QR",icon:IconQrcode,onlyLogin:true
     },{
         path:"user",text:"Số điện thoại / Email / TikTok ID",icon:IconUser
     },{
@@ -32,8 +36,8 @@ export const routersLogin = [
 
 export const routersAuth = {
     login:{
-        title:"Đăng nhập vào TikTok",content:(<LoginContent />)
+        title:"Đăng nhập vào TikTok",content:(<LoginContent />),footer:(<LoginFooter />)
     },register:{
-        title:"Đăng ký tài khoản TikTok",content:(<RegisterContent />)
+        title:"Đăng ký tài khoản TikTok",content:(<RegisterContent />),footer:(<RegisterFooter />)
     }
 }

@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  font-size: 1em;
+  text-transform: initial !important;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1.5;
+  background-color: transparent !important;
+  text-rendering: optimizeSpeed;
+  font-family: "TimesNewRoman";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#root {
+  position: fixed;
+  inset: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.hidden {
+  opacity: 0 !important;
+  transition: opacity 0.25s;
+}
+.disabled {
+  pointer-events: none !important;
+}
+
+
+.fullheight {
+  height: 100% !important;
+}
+.fullwidth {
+  width: 100% !important;
+}
+.fullview {
+  height: 100% !important;
+  width: 100% !important;
+}
+.grow {
+  flex: 1 !important;
+}
+.relative {
+  position: relative !important;
+}
+.absolute {
+  position: absolute !important;
+}
+.fixed {
+  position: fixed !important;
+}
+
+.inset-0 {
+  inset: 0 !important;
+}
+
+
+.mantine-ScrollArea-root.fullview .mantine-ScrollArea-viewport {
+  position: absolute;
+}
+.mantine-ScrollArea-root.x .mantine-ScrollArea-viewport {
+  overflow-x: scroll !important;
+  overflow-y: hidden !important;
+}
+.mantine-ScrollArea-root.y .mantine-ScrollArea-viewport {
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+}
+.mantine-ScrollArea-viewport > div {
+  display: block !important;
+}
+
+
+[class*="MuiListItemIcon"]{
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* [class*="-dropdown"]::before,
+[role="tooltip"]::before{
+  content: "";
+  position: absolute;
+  inset: -20px;
+  display: block;
+} */
+
+.line-clamp-1,
+.line-clamp-2,
+.line-clamp-3,
+.line-clamp-4,
+.line-clamp-5{
+  overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.line-clamp-1{
+  -webkit-line-clamp:  1;
+}
+.line-clamp-2{
+  -webkit-line-clamp:  2;
+}
+.line-clamp-3{
+  -webkit-line-clamp:  3;
+}
+.line-clamp-4{
+  -webkit-line-clamp:  4;
+}
+.line-clamp-5{
+    -webkit-line-clamp:  5;
+}
+.text-uppercase
+{
+  text-transform: uppercase !important;
+}
+.text-lowercase
+{
+  text-transform: lowercase !important;
+}
+.text-capitalize
+{
+  text-transform: capitalize !important;
+}

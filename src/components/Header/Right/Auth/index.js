@@ -8,8 +8,11 @@ function AuthComponent(props){
     const [state,dispath] = useReducer(reducerState,initState);
     return (
         <AuthProvider {...{state,dispath}}>
-            <AuthLayout title={routersAuth[state.path].title}>
-                {routersAuth[state.path].content}
+            <AuthLayout 
+                title={routersAuth[state.path]?.title}
+                footer={routersAuth[state.path]?.footer}
+            >
+                {routersAuth[state.path]?.content}
             </AuthLayout>
         </AuthProvider>
     )

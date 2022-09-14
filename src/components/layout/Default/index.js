@@ -1,30 +1,30 @@
 import {memo} from 'react';
 import {
     Grid, Stack , Container
-} from '@mantine/core';
-import Header from '../../Header';
-import { LeftSidebar } from '../../sidebar';
-import Content from '../../Content';
+} from '@mui/material';
+import Header from '~/components/Header';
+import { LeftSidebar } from '~/components/sidebar';
+import Content from '~/components/Content';
 function Default({children}){
     return (
-                <Stack className={"fullheight"} spacing={0} align="flex-start">
+                <Stack className={"fullview"} spacing={0}>
                     <Header />
-                    <section className={"fullwidth grow"}>
-                        <Container fluid className={"fullheight"}>
-                            <Container size={"lg"} className={"fullheight"}>
-                                <Grid className={"fullheight"}>
-                                    <Grid.Col xs={3.5}>
+                    {/* <section className={"fullwidth grow"}>
+                        <Container maxWidth="100%" className={"fullheight"}>
+                            <Container maxWidth="lg"  pb={0} className={"fullheight"}>
+                                <Grid container className={"fullheight"}>
+                                    <Grid item xs={3.5}>
                                         <LeftSidebar/>
-                                    </Grid.Col>
-                                    <Grid.Col xs={8.5}>
+                                    </Grid>
+                                    <Grid item xs={8.5}>
                                         <Content>
                                             {children}
                                         </Content>
-                                    </Grid.Col>
+                                    </Grid>
                                 </Grid>
                             </Container>
                         </Container>
-                    </section>
+                    </section> */}
                 </Stack>
     )
 };export default memo(Default)

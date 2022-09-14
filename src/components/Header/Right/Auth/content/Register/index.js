@@ -1,59 +1,53 @@
-import {memo,Fragment,useContext} from 'react';
+import { memo } from "react";
+import { routersLogin } from "../../routers";
 import {
-    Button,
-    Stack,
-    ScrollArea,
-    Divider,
-    Group,
-    Text,
-    Anchor
-} from "@mantine/core";
-
-import {routersLogin} from "../../routers"
-import { AuthContext } from '../../provider';
-import { initCase} from '../../init';
-function RegisterComponent(props){
-    const {dispath} = useContext(AuthContext);
-    return (
-        <Fragment>
-                <ScrollArea style={{overflow:"hidden auto"}}>
-                    <Stack justify={"space-between"}>
-                        {
-                            routersLogin.map((route,index)=>(
-                                <Button 
-                                    key={index} 
-                                    variant="outline"
-                                    color={"dark"}
-                                    leftIcon={<route.icon />} 
-                                    styles={()=>({
-                                        inner:{
-                                            justifyContent:'flex-start'
-                                        },label:{
-                                            margin:"0 auto"
-                                        }
-                                    })}
-                                >
-                                    {route.text}
-                                </Button>
-                            ))
-                        }
-                    </Stack>
-                </ScrollArea>
-                <Text component='p' size={"0.8em"} my={10}>Bằng cách tiếp tục, bạn đồng ý với <Anchor>Điều khoản Sử dụng</Anchor> của TikTok và xác nhận rằng bạn đã đọc hiểu <Anchor>Chính sách Quyền riêng tư</Anchor> của TikTok.
-                </Text>
-                <Divider size="sm" mt={5}/>
-                <Group position="center" py={5}>
-                    <Text>Bạn đã có tài khoản?</Text>
-                    <Anchor 
-                        component="button" 
-                        type="button"
-                        color={"blue.6"}
-                        weight={"bold"}
-                        onClick={()=>(dispath([initCase.SET_PATH,"login"]))}
+  List,
+  ListItem,
+  Stack,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Paper,
+  Link,
+  Typography,
+} from "@mui/material";
+import { Link as LinkTo } from "react-router-dom";
+function RegisterComponent(props) {
+  return (
+    <>
+      <List component={Stack} spacing={1} disablePadding>
+        {
+            routersLogin.map((route, index) => (
+                <ListItem
+                    component={Paper}
+                    variant="outlined"
+                    disablePadding
+                    key={index}
+                >
+                    <ListItemButton
+                    to={route.path}
+                    component={LinkTo}
+                    variant="outlined"
                     >
-                        Đăng nhập
-                    </Anchor>
-                </Group>
-        </Fragment>
-    )
-};export default memo(RegisterComponent)
+                    <ListItemIcon>{<route.icon />}</ListItemIcon>
+                    <ListItemText>{route.text}</ListItemText>
+                    </ListItemButton>
+                </ListItem>
+            ))
+        }
+      </List>
+      <Typography>
+        Bằng cách tiếp tục, bạn đồng ý với
+        <Link underline="hover" fontWeight="bold" component={LinkTo} to="#">
+          {" Điều khoản Sử dụng "}
+        </Link>
+        của TikTok và xác nhận rằng bạn đã đọc hiểu
+        <Link underline="hover" fontWeight="bold" component={LinkTo} to="#">
+          {" Chính sách Quyền riêng tư "}
+        </Link>
+        của TikTok.
+      </Typography>
+    </>
+  );
+}
+export default memo(RegisterComponent);

@@ -1,30 +1,30 @@
 import {memo} from 'react';
-import {Button, Group, Title} from "@mantine/core";
+import {Anchor, Group, Title} from "@mantine/core";
 import { useDisclosure } from '@mantine/hooks';
 import ProfileLink from './Profile';
 const links = [
     {
-        id:"@theanh28entertainment",name:"theanh28entertainment",description:""
+        id:"@theanh28entertainment",name:"theanh28entertainment",description:"mota",avatar:"/imgs/avatar-00.jpg",isTicked:true
     },{
-        id:"@60giay.com",name:"60giay.com",description:""
+        id:"@60giay.com",name:"60giay.com",description:"mota",avatar:"/imgs/avatar-00.jpg"
     },{
-        id:"@tiin.vn",name:"tiin.vn",description:""
+        id:"@tiin.vn",name:"tiin.vn",description:"mota",avatar:"/imgs/avatar-00.jpg"
     },{
-        id:"@60giay.com",name:"60giay.com",description:""
+        id:"@60giay.com",name:"60giay.com",description:"mota",avatar:"/imgs/avatar-00.jpg"
     },{
-        id:"@tiin.vn",name:"tiin.vn",description:""
+        id:"@tiin.vn",name:"tiin.vn",description:"mota",avatar:"/imgs/avatar-00.jpg"
     },{
-        id:"@60giay.com",name:"60giay.com",description:""
+        id:"@60giay.com",name:"60giay.com",description:"mota",avatar:"/imgs/avatar-00.jpg"
     },{
-        id:"@tiin.vn",name:"tiin.vn",description:""
+        id:"@tiin.vn",name:"tiin.vn",description:"mota",avatar:"/imgs/avatar-00.jpg"
     },{
-        id:"@60giay.com",name:"60giay.com",description:""
+        id:"@60giay.com",name:"60giay.com",description:"mota",avatar:"/imgs/avatar-00.jpg"
     },{
-        id:"@tiin.vn",name:"tiin.vn",description:""
+        id:"@tiin.vn",name:"tiin.vn",description:"mota",avatar:"/imgs/avatar-00.jpg"
     }
 
 ];
-const MAX_LENGTH_RENDER = 5;
+const MAX_LENGTH_RENDER = 3;
 function RecommendAccountComponent(props){
     
     const [isFull,handlerFull] = useDisclosure (false);
@@ -38,12 +38,11 @@ function RecommendAccountComponent(props){
                     )
                 })
             }
-            <Button 
-                onClick={()=>{handlerFull.toggle()}} 
-                variant="subtle" 
+            <Anchor 
+                onClick={()=>{handlerFull.toggle()}}
                 color="red">
                     {isFull ? "Ẩn bớt" : "Xem tất cả"}
-            </Button>
+            </Anchor>
         </Group>
     )
 };export default memo(RecommendAccountComponent)
