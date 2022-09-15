@@ -17,9 +17,9 @@
     overflow-y: hidden;
 }
 
-.view-hover::-webkit-scrollbar {
-   opacity: 0;
+/* .view-hover::-webkit-scrollbar-thumb {
+   display: none;
 }
-.root:hover .view-hover::-webkit-scrollbar {
-   opacity: 1;
-}
+.wrapper:hover .view-hover::-webkit-scrollbar-thumb {
+   display: block
+} */

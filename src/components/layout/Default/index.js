@@ -14,7 +14,11 @@ function Default({ children }) {
                             <Grid item xs={3.5}>
                                 <LeftSidebar/>
                             </Grid>
-                            <Grid item xs={8.5}></Grid>
+                            <Grid item xs={8.5}>
+                                <Content>
+                                    {children}
+                                </Content>
+                            </Grid>
                         </Grid>
                     </Container>
                 </Container>
@@ -28,9 +32,7 @@ function Default({ children }) {
                                         
                                     </Grid>
                                     <Grid item xs={8.5}>
-                                        <Content>
-                                            {children}
-                                        </Content>
+                                        
                                     </Grid>
                                 </Grid>
                             </Container>*/}

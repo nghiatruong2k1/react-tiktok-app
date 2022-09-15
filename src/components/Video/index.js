@@ -1,6 +1,14 @@
 import { memo, forwardRef } from 'react';
 import clsx from 'clsx';
-import { Paper, Stack, IconButton, Skeleton } from '@mui/material';
+import {
+    Paper,
+    Stack,
+    IconButton,
+    Skeleton,
+    BackdropRoot,
+    Backdrop,
+    CircularProgress,
+} from '@mui/material';
 import styles from './styles.module.css';
 import { useDisclosure } from '@mantine/hooks';
 import { IconPlayerPause, IconPlayerPlay } from '@tabler/icons';
@@ -11,20 +19,32 @@ function VideoComponent({ loading, className, ...props }, ref) {
     return (
         <Paper
             variant="outlined"
-            component={loading ? Skeleton : 'div'}
             className={clsx([styles['video-wrapper']], {
                 className: className,
             })}
             {...props}
         >
             <video className="fullview">Trình duyệt không hổ trợ</video>
-            <Stack className={clsx([styles['bottom-control']], styles.control)} p={1} spacing={1}>
-                <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'}>
-                    <IconButton size="small">{isPlaying ? <IconPlayerPause /> : <IconPlayerPlay />}</IconButton>
+            <Stack
+                className={clsx([styles['bottom-control']], styles.control)}
+                p={1}
+                spacing={1}
+            >
+                <Stack
+                    direction={'row'}
+                    alignItems={'center'}
+                    justifyContent={'space-between'}
+                >
+                    <IconButton size="small">
+                        {isPlaying ? <IconPlayerPause /> : <IconPlayerPlay />}
+                    </IconButton>
                     <VolumnButton />
                 </Stack>
                 <TimelineBar />
             </Stack>
+            <Backdrop className={styles.overlay} open={Boolean(loading)}>
+                <CircularProgress color="inherit" />
+            </Backdrop>
         </Paper>
     );
 }

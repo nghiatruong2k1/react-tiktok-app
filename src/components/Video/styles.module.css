@@ -1,14 +1,10 @@
 .video-wrapper {
     position: relative;
 }
-.bottom-control {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
+
 .control {
     opacity: 0;
+    z-index: 1;
     user-select: none;
     pointer-events: none;
     transition: opacity 0.25s;
@@ -16,4 +12,17 @@
 .video-wrapper:hover .control {
     opacity: 1;
     pointer-events: auto;
+}
+.bottom-control {
+    position: absolute;
+   
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.overlay {
+    position: absolute !important;
+    background-color: #eee !important;
+    inset: 0;
+    z-index: 2 !important;
 }
