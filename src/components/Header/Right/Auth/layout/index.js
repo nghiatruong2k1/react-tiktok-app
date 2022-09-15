@@ -56,7 +56,7 @@ function AuthLayoutComponent({ title, footer, children }) {
         </DialogActions>
         <DialogContent sx={{ px: 5, py: 0.5 }}>
           <Stack spacing={1}>
-            <DialogTitle align="center" fontWeight={"bold"} sx={{ py: 1 }}>
+            <DialogTitle align="center" fontWeight={"bold"} sx={{ py: 0 }}>
               {title}
             </DialogTitle>
             {children}

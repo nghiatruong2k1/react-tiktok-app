@@ -1,37 +1,37 @@
 export const initState = {
-    path:[]
+    path: [],
 };
 export const initCase = {
-    NEXT:'next',
-    BACK:'back',
-    RESET:'reset'
+    NEXT: 'next',
+    BACK: 'back',
+    RESET: 'reset',
 };
-export function reducerState(prevState,[key,payload]){
-    switch(key){
-        case initCase.NEXT:{
+export function reducerState(prevState, [key, payload]) {
+    switch (key) {
+        case initCase.NEXT: {
             const newPath = [...prevState.path];
             newPath.push(payload);
-            return{
+            return {
                 ...prevState,
-                path:newPath
-            }
+                path: newPath,
+            };
         }
-        case initCase.BACK:{
+        case initCase.BACK: {
             const newPath = [...prevState.path];
             newPath.pop();
-            return{
-                ...prevState,
-                path:newPath
-            }
-        }
-        case initCase.RESET:{
             return {
-                ...initState
-            }
+                ...prevState,
+                path: newPath,
+            };
         }
-        default:{
-            console.log(`không tôn tại case key`,initCase)
-            return prevState
+        case initCase.RESET: {
+            return {
+                ...initState,
+            };
+        }
+        default: {
+            console.log(`không tôn tại case key`, initCase);
+            return prevState;
         }
     }
-};
+}

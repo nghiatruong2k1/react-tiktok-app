@@ -1,27 +1,29 @@
-
-import { Divider, Stack } from '@mui/material';
-import {memo,Fragment} from 'react';
+import { List, ListItem, Stack } from '@mui/material';
+import { memo } from 'react';
 import ScrollArea from '~/components/ScrollArea';
 import DiscoverComponent from './Discover';
 import LinksComponent from './Links';
 import MenuComponent from './Menu';
 import ProfileComponent from './Profile';
 import RecommendAccountComponent from './RecommendAccount';
-function LeftSidebarComponent(props){
+const sibarItems = [
+    MenuComponent,
+    ProfileComponent,
+    RecommendAccountComponent,
+    DiscoverComponent,
+    LinksComponent,
+];
+function LeftSidebarComponent(props) {
     return (
         <ScrollArea className={'fullview'} type="hover">
-            <Stack spacing={1} p={1}>
-                <MenuComponent />
-                <Divider/>
-                <ProfileComponent />
-                <Divider/>
-                <RecommendAccountComponent />
-                <Divider/>
-                <DiscoverComponent />
-                <Divider/>
-                <LinksComponent />
-                <Divider/>
+            <Stack component={List} gap={1}>
+                {sibarItems.map((Item, index) => (
+                    <ListItem key={index}  p={1} divider>
+                        <Item />
+                    </ListItem>
+                ))}
             </Stack>
         </ScrollArea>
-    )
-};export default memo(LeftSidebarComponent)
+    );
+}
+export default memo(LeftSidebarComponent);

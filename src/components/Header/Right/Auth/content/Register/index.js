@@ -15,11 +15,11 @@ import { Link as LinkTo } from "react-router-dom";
 function RegisterComponent(props) {
   return (
     <>
-      <List component={Stack} spacing={1} disablePadding>
+      <Stack component={List} spacing={1} disablePadding>
         {
             routersLogin.map((route, index) => (
-                <ListItem
-                    component={Paper}
+                <Paper
+                    component={ListItem}
                     variant="outlined"
                     disablePadding
                     key={index}
@@ -32,10 +32,10 @@ function RegisterComponent(props) {
                     <ListItemIcon>{<route.icon />}</ListItemIcon>
                     <ListItemText>{route.text}</ListItemText>
                     </ListItemButton>
-                </ListItem>
+                </Paper>
             ))
         }
-      </List>
+      </Stack>
       <Typography>
         Bằng cách tiếp tục, bạn đồng ý với
         <Link underline="hover" fontWeight="bold" component={LinkTo} to="#">

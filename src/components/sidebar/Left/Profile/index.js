@@ -1,10 +1,10 @@
 import {memo} from 'react';
 import LoginProfile from "./Login";
-import { Group } from '@mantine/core';
+import { Stack } from '@mui/material';
 function ProfileComponent(props){
     return (
-        <Group spacing={5}>
+        <Stack spacing={2}>
             <LoginProfile />
-        </Group>
+        </Stack>
     )
 };export default memo(ProfileComponent)

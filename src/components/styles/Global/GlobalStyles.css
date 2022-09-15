@@ -1,13 +1,13 @@
 * {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font: inherit;
-  font-size: 1em;
-  text-transform: initial !important;
-  vertical-align: baseline;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    font-size: 1em;
+    text-transform: initial !important;
+    vertical-align: baseline;
+    box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -21,20 +21,20 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+    display: block;
 }
 
 body {
-  line-height: 1.5;
-  background-color: transparent !important;
-  text-rendering: optimizeSpeed;
-  font-family: "TimesNewRoman";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+    background-color: transparent !important;
+    text-rendering: optimizeSpeed;
+    font-family: 'TimesNewRoman';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 #root {
-  position: fixed;
-  inset: 0;
+    position: fixed;
+    inset: 0;
 }
 article,
 aside,
@@ -47,87 +47,90 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+    display: block;
 }
 
 ol,
 ul {
-  list-style: none;
+    list-style: none;
 }
 blockquote,
 q {
-  quotes: none;
+    quotes: none;
 }
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
-  content: none;
+    content: '';
+    content: none;
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 .hidden {
-  opacity: 0 !important;
-  transition: opacity 0.25s;
+    opacity: 0 !important;
+    transition: opacity 0.25s;
 }
 .disabled {
-  pointer-events: none !important;
+    pointer-events: none !important;
 }
-
 
 .fullheight {
-  height: 100% !important;
+    height: 100% !important;
 }
 .fullwidth {
-  width: 100% !important;
+    width: 100% !important;
 }
 .fullview {
-  height: 100% !important;
-  width: 100% !important;
+    height: 100% !important;
+    width: 100% !important;
 }
 .grow {
-  flex: 1 !important;
+    flex: 1 !important;
 }
 .relative {
-  position: relative !important;
+    position: relative !important;
 }
 .absolute {
-  position: absolute !important;
+    position: absolute !important;
 }
 .fixed {
-  position: fixed !important;
+    position: fixed !important;
 }
 
 .inset-0 {
-  inset: 0 !important;
+    inset: 0 !important;
 }
 
-
-.mantine-ScrollArea-root.fullview .mantine-ScrollArea-viewport {
-  position: absolute;
+.mantine-ScrollArea-root.fullview
+    .mantine-ScrollArea-viewport {
+    position: absolute;
 }
 .mantine-ScrollArea-root.x .mantine-ScrollArea-viewport {
-  overflow-x: scroll !important;
-  overflow-y: hidden !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
 }
 .mantine-ScrollArea-root.y .mantine-ScrollArea-viewport {
-  overflow-y: scroll !important;
-  overflow-x: hidden !important;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
 }
 .mantine-ScrollArea-viewport > div {
-  display: block !important;
+    display: block !important;
 }
 
-
-[class*="MuiListItemIcon"]{
-  align-items: center;
-  justify-content: center;
+[class*='MuiListItemIcon'] {
+    align-items: center;
+    justify-content: center;
 }
-
+[class*='MuiListItemIcon']:first-child {
+    justify-content: flex-start;
+}
+[class*='MuiListItemIcon']:last-child {
+    justify-content: flex-end;
+}
 
 /* [class*="-dropdown"]::before,
 [role="tooltip"]::before{
@@ -141,36 +144,50 @@ table {
 .line-clamp-2,
 .line-clamp-3,
 .line-clamp-4,
-.line-clamp-5{
-  overflow: hidden;
+.line-clamp-5 {
+    overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }
-.line-clamp-1{
-  -webkit-line-clamp:  1;
+.line-clamp-1 {
+    -webkit-line-clamp: 1;
 }
-.line-clamp-2{
-  -webkit-line-clamp:  2;
+.line-clamp-2 {
+    -webkit-line-clamp: 2;
 }
-.line-clamp-3{
-  -webkit-line-clamp:  3;
+.line-clamp-3 {
+    -webkit-line-clamp: 3;
 }
-.line-clamp-4{
-  -webkit-line-clamp:  4;
+.line-clamp-4 {
+    -webkit-line-clamp: 4;
 }
-.line-clamp-5{
-    -webkit-line-clamp:  5;
+.line-clamp-5 {
+    -webkit-line-clamp: 5;
 }
-.text-uppercase
-{
-  text-transform: uppercase !important;
+.text-uppercase {
+    text-transform: uppercase !important;
 }
-.text-lowercase
-{
-  text-transform: lowercase !important;
+.text-lowercase {
+    text-transform: lowercase !important;
 }
-.text-capitalize
-{
-  text-transform: capitalize !important;
+.text-capitalize {
+    text-transform: capitalize !important;
+}
+
+a:not(.disabled),
+a:not(:disabled) {
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(
+        -45deg,
+        #6a5af9,
+        #d66efd
+    );
+    border-radius: 100rem;
 }

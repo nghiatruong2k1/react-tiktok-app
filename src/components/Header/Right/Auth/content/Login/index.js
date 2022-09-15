@@ -14,9 +14,9 @@ import { Link } from "react-router-dom";
 function LoginComponent(props) {
   return (
     <>
-      <List component={ Stack } spacing={1} disablePadding>
+      <Stack component={ List } spacing={1} disablePadding>
         {routersLogin.map((route, index) => (
-          <ListItem component={Paper} variant="outlined" disablePadding key={index}>
+          <Paper component={ListItem} variant="outlined" disablePadding key={index}>
               <ListItemButton
                 to={route.path}
                 component={Link}
@@ -25,9 +25,9 @@ function LoginComponent(props) {
                 <ListItemIcon>{<route.icon />}</ListItemIcon>
                 <ListItemText>{route.text}</ListItemText>
               </ListItemButton>
-          </ListItem>
+          </Paper>
         ))}
-      </List>
+      </Stack>
     </>
   );
 }

@@ -10,14 +10,14 @@ function ScrollAreaComponent({hidden = '',isHover = true,classes = {},children})
     const {wrapper,view} = classes;
     return (
         <Box className={ clsx(styles.wrapper,{wrapper:wrapper}) }>
-            <Box className={ clsx(styles.view,{
-                    view:view,
-                    [styles[`hidden-${hidden}`]]:hiddens[hidden],
-                    [styles['view-hover']]:isHover
-                })}
-            >
-                <Box>{children}</Box>
-            </Box>
+                <Box className={ clsx(styles.view,{
+                        view:view,
+                        [styles[`hidden-${hidden}`]]:hiddens[hidden],
+                        [styles['view-hover']]:isHover
+                    })}
+                >
+                    <Box>{children}</Box>
+                </Box>
         </Box>
     )
 };export default memo(ScrollAreaComponent)

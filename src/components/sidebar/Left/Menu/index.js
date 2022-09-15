@@ -1,7 +1,9 @@
 import {memo} from 'react';
-import {Group, NavLink} from "@mantine/core";
 import {Link , useLocation }  from "react-router-dom";
 import { IconHeart, IconHome, IconVideo } from '@tabler/icons';
+import { List,ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import clsx from 'clsx';
+import styles from "./styles.module.css";
 const links = [
     {
         path:"/",label:"Trang chủ",icon:IconHome
@@ -14,32 +16,26 @@ const links = [
 function MenuComponent(props){
     const location = useLocation();
     return (
-        <Group spacing={2}>
+        <List disablePadding>
             {
                 links.map(({path,label,icon},index)=>{
                     const Icon = icon;
                     return(
-                        <NavLink   
+                        <ListItem
+                            disablePadding   
                             key={index} 
                             component={ Link } 
                             to={path} 
-                            label={label} 
-                            icon={<Icon />}
-                            variant="subtle"
-                            color="red"
-                            active={location.pathname === path}
-                            style={{fontWeight:"bold"}}
-                            sx={{
-                                xs:{
-                                    text:{
-                                        
-                                    }
-                                }
-                            }}
-                        />
+                            className={ clsx(styles.link,{
+                                [styles.active]:(location.pathname === path)
+                            })}
+                        >
+                            <ListItemIcon className={styles.icon}>{<Icon />}</ListItemIcon>
+                            <ListItemText classes={{primary:styles.text}}>{label}</ListItemText>
+                        </ListItem>
                     )
                 })
             }
-        </Group>
+        </List>
     )
 };export default memo(MenuComponent)

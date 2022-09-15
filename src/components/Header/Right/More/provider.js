@@ -1,10 +1,10 @@
-import {memo,createContext} from 'react';
+import { memo, createContext } from 'react';
 export const MoreContext = createContext();
-function MoreProvider({state,dispath,children}){
+function MoreProvider({ state, dispath, children }) {
     return (
-        <MoreContext.Provider value={{state,dispath}}>
+        <MoreContext.Provider value={{ state, dispath }}>
             {children}
         </MoreContext.Provider>
-    )
-};
-export default memo(MoreProvider)
+    );
+}
+export default memo(MoreProvider);

@@ -1,8 +1,7 @@
-
 import { Stack } from '@mui/material';
-import {memo} from 'react';
+import { memo } from 'react';
 import ScrollArea from '../ScrollArea';
-function ContentComponent({children}){
+function ContentComponent({ children }) {
     return (
         <>
             <ScrollArea className={'fullview'} type="hover">
@@ -11,6 +10,6 @@ function ContentComponent({children}){
                 </Stack>
             </ScrollArea>
         </>
-    )
-};
-export default memo(ContentComponent)
+    );
+}
+export default memo(ContentComponent);

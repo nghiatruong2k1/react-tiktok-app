@@ -1,83 +1,111 @@
-import { memo } from "react";
+import { memo, useRef } from 'react';
+import { Link as LinkTo, useLocation } from 'react-router-dom';
+import { IconCircleCheck } from '@tabler/icons';
+import { useDisclosure } from '@mantine/hooks';
+import clsx from 'clsx';
 import {
-  Avatar,
-  Button,
-  Divider,
-  Group,
-  NavLink,
-  Popover,
-  Stack,
-  Text,
-} from "@mantine/core";
-import { Link, useLocation } from "react-router-dom";
-import { IconCircleCheck } from "@tabler/icons";
-import { useDisclosure } from "@mantine/hooks";
-import clsx from "clsx";
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Avatar,
+    Popover,
+    Card,
+    CardHeader,
+    CardContent,
+    Button,
+    Typography,
+    Divider,
+    Stack,
+    Link,
+    ListItemButton,
+} from '@mui/material';
+import styles from './styles.module.css';
 function ProfileComponent({ name, description, avatar, id, isTicked }) {
-  const location = useLocation();
-  const [isOpen, { close, open }] = useDisclosure();
-  return (
-    <div
-      className={"fullwidth"}
-      onMouseMove={(e) => {if(!isOpen){open();}}}
-      onMouseLeave={(e) => {if(isOpen){close();}}}
-    >
-      <Popover withArrow shadow={"md"} width="target" opened={isOpen}>
-        <Popover.Target>
-          <NavLink
-            component={Link}
-            to={id}
-            label={<Text lineClamp={1}>{name}</Text>}
-            rightSection={
-              <IconCircleCheck
-                className={clsx({ hidden: !isTicked })}
-                size={"0.9em"}
-                color="blue"
-              />
-            }
-            description={description}
-            icon={<Avatar src={avatar} />}
-            variant="subtle"
-            color="red"
-            active={location.pathname === id}
-            style={{ fontWeight: "bold" }}
-          />
-        </Popover.Target>
-        <Popover.Dropdown>
-          <Stack>
-            <Group position="apart">
-              <Avatar src={avatar} />
-              <Button color={"red"}>Theo dõi</Button>
-            </Group>
-            <Divider />
-            <NavLink
-              component={Link}
-              to={id}
-              label={name}
-              description={description}
-              rightSection={
-                <IconCircleCheck
-                  className={clsx({ hidden: !isTicked })}
-                  size={"0.9em"}
-                  color="blue"
+    const location = useLocation();
+    const ref = useRef();
+    const [isOpen, { close, open }] = useDisclosure();
+    return (
+        <ListItem
+            disablePadding
+            divider
+            ref={ref}
+            onClick={(e) => {
+                if (!isOpen) {
+                    open();
+                }
+            }}
+        >
+            <ListItemButton component="button">
+                <ListItemIcon>
+                    <Avatar src={avatar} />
+                </ListItemIcon>
+                <ListItemText
+                    secondary={description}
+                    primaryTypographyProps={{
+                      className:styles.link
+                    }}
+                    primary={
+                        <>
+                            {`${name} `}
+                            <IconCircleCheck
+                                className={clsx({ hidden: !isTicked })}
+                                size={'0.9em'}
+                                color="rgb(32, 213, 236)"
+                            />
+                        </>
+                    }
                 />
-              }
-              variant="subtle"
-              style={{ fontWeight: "bold" }}
-            />
-            <Divider />
-            <Group noWrap={false}>
-              <Text lineClamp={1}>
-                <b>2.6M</b> Lượt theo dõi
-              </Text>
-              <Text lineClamp={1}>
-                <b>2.6M</b> Thích
-              </Text>
-            </Group>
-          </Stack>
-        </Popover.Dropdown>
-      </Popover>
-    </div>
-  );
+            </ListItemButton>
+            <Popover
+                open={Boolean(ref.current && isOpen)}
+                disableScrollLock={false}
+                anchorEl={ref.current}
+                hideBackdrop
+                PaperProps={{
+                    component: Card,
+                    onMouseLeave: (e) => {
+                        close();
+                    },
+                    sx: {
+                        width: 300,
+                    },
+                }}
+            >
+                <CardHeader
+                    sx={{ pb: 1 }}
+                    avatar={<Avatar src={avatar} />}
+                    action={<Button variant="contained">Theo dõi</Button>}
+                />
+                <Divider sx={{ mx: 1 }} />
+                <CardContent sx={{ pt: 1 }}>
+                    <Typography >
+                        <Link component={LinkTo} className={styles.link} underline='hover' to={id}>
+                            {`${name} `}
+                            <IconCircleCheck
+                                className={clsx({ hidden: !isTicked })}
+                                size={'0.9em'}
+                                color="rgb(32, 213, 236)"
+                            />
+                        </Link>
+                    </Typography>
+                    <Typography>{description}</Typography>
+                    <Stack
+                        direction={'row'}
+                        justifyContent={'space-between'}
+                        flexWrap={'wrap'}
+                    >
+                        <Typography>
+                            <b>{` 1M `}</b>lượt theo dõi
+                        </Typography>
+                        <Typography>
+                            <b>{` 1M `}</b>lượt thích
+                        </Typography>
+                    </Stack>
+                </CardContent>
+                <div></div>
+            </Popover>
+        </ListItem>
+    );
 }
 export default memo(ProfileComponent);
+/**            */

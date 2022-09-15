@@ -1,24 +1,24 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import App from "~/App";
-import reportWebVitals from "~/reportWebVitals";
-import { GlobalStyles } from "~/components/styles";
-import GlobalFonts from "~/components/fonts";
-import GlobalStates from "~/components/states";
-const root = ReactDOM.createRoot(document.getElementById("root"));
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from '~/App';
+import reportWebVitals from '~/reportWebVitals';
+import { GlobalStyles } from '~/components/styles';
+import GlobalFonts from '~/components/fonts';
+import GlobalStates from '~/components/states';
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <GlobalFonts>
-        <GlobalStyles>
-          <GlobalStates>
-            <App />
-          </GlobalStates>
-        </GlobalStyles>
-      </GlobalFonts>
-    </BrowserRouter>
-  </React.StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
+            <GlobalFonts>
+                <GlobalStyles>
+                    <GlobalStates>
+                        <App />
+                    </GlobalStates>
+                </GlobalStyles>
+            </GlobalFonts>
+        </BrowserRouter>
+    </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function
